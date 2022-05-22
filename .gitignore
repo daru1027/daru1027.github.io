@@ -1,6 +1,5 @@
-### IntelliJ IDEA ###
-.idea
-venv
-
-### Mac OS ####
-.DS_Store
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
