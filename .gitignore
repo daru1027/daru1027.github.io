@@ -1,0 +1,6 @@
+### IntelliJ IDEA ###
+.idea
+venv
+
+### Mac OS ####
+.DS_Store
