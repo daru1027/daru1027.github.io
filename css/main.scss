@@ -1,32 +1,48 @@
 ---
-layout: null
-sitemap: false
 ---
+@charset "utf-8";
 
-$baseurl: "{{ site.baseurl }}";
-$body-background-color: #2B2E31;
+// Our variables
+$base-font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$small-font-size:  $base-font-size * 0.895;
+$large-font-size:  $base-font-size * 1.40;
 
-$content-max-width: 800px;
-$content-color: #222;
-$content-background-color: #fff;
+$base-line-height: 1.5;
 
-$brand-colour: #3583d6;
-$brand-colour-light: mix($brand-colour, $content-background-color, 10%);
+$spacing-unit:     30px;
 
-$nav-header-background-color: $brand-colour;
-$nav-header-height: 60px;
-$nav-background-color: #f5f5f5;
-$nav-width: 300px;
+$text-color:       #454545;
+$background-color: #FFF;
+$brand-color:      #00B2EE;
 
-$space: 20px;
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 30%);
+$grey-color-dark:  darken($grey-color, 25%);
 
-$mobile-break: 700px;
-$full-width-break: $nav-width + ($space * 4) + $content-max-width;
+// Width of the content area
+$content-width:    700px;
+$on-palm:          700px;
+$on-laptop:        700px;
 
-@import "mixins";
-@import "normalize";
-@import "pygments";
-@import "typography";
-@import "code";
-@import "tables";
-@import "layout";
+
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout",
+        "syntax-highlighting"
+;
