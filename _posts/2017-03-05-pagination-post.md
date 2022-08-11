@@ -2,6 +2,7 @@
 layout: post
 title: "Pagination Post"
 author: "Chester"
+sticky: true
 tags: Tale
 ---
 
