@@ -1,17 +1,17 @@
 # Site settings
-title:          Tale
+title:          Daru's Blog
 description:    "Minimal Jekyll theme for storytellers"
 baseurl:        ""
 url:            "https://daru1027.github.io"
 
 # Google Analytics
-google_analytics: UA—XXXXXXXX-X
+# google_analytics: UA—XXXXXXXX-X
 
 # Author
 author:
-  name:         Chester How
-  url:          https://chester.how
-  email:        chesterhow@gmail.com
+  name:         Daru
+  url:          https://daru1027.github.io
+  email:        hozoob1027@gmail.com
 
 # Build settings
 markdown:       kramdown
