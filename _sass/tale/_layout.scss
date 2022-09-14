@@ -94,5 +94,6 @@ footer {
 #wrap {
   display: grid;
   justify-content: center;
+  place-items: center;
   grid-template-columns: 30px 30px 30px;
 }
