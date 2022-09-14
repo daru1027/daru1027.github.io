@@ -1,6 +1,6 @@
 # Site settings
 title:          다루의 개발일지
-description:    "Minimal Jekyll theme for storytellers"
+description:    개발하면서 끄적이는 블로그
 baseurl:        ""
 url:            "https://daru1027.github.io"
 
