@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "EKS에 Trino 띄우기 Part 1"
+title: "EKS에 Trino 구축하기 #1"
 tags: EKS Trino Kubernetes
 ---
 
