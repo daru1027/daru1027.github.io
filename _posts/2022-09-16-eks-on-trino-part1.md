@@ -5,7 +5,6 @@ tags: EKS Trino Kubernetes
 ---
 
 ## EKS란?
-#  
 
 ## Trino란?
 
