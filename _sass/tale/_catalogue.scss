@@ -4,6 +4,7 @@
     color: $default-color;
     display: block;
     padding: 2rem 0;
+    font-family: sans-serif;
 
     &:hover .catalogue-line,
     &:focus .catalogue-line {
@@ -17,13 +18,13 @@
 
   &-pinned {
     color: $default-tint;
-    font-family: $serif-secondary;
+    font-family: $sans-serif;
     letter-spacing: .5px;
   }
 
   &-time {
     color: $default-tint;
-    font-family: $serif-secondary;
+    font-family: $sans-serif;
     letter-spacing: .5px;
   }
 
