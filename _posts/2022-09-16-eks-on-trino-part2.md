@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "EKS에 Trino 구축하기 #1"
+title: "EKS에 Trino 구축하기 #2"
 tags: EKS Trino Kubernetes
 ---
 해당 포스트는 분산 쿼리 엔진인 **Trino**를 클러스터 환경인 **AWS EKS(Elastic Kubernetes Service)**에 구축하는 내용을 담았습니다.
