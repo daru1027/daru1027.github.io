@@ -22,7 +22,7 @@ tags: EKS Trino Kubernetes
 <br/><br/>
 
 ## 구축 배경
-<img src = "/post_images/eks-on-trino-part1/question-mark.jpg" width="400" height=auto>
+<img src = "/post_images/eks-on-trino-part1/question-mark.jpg" width="auto" height=auto>
 EKS에 Trino를 구축하게 된 이유로 크게 2가지가 있습니다.
 <br/><br/>
 기존에는 AWS EMR 클러스터 환경에 Trino를 구축하여 운영했습니다. 클러스터 환경을 쓰는 만큼 오토스케일링(Autoscaling)은 상상만으로도 즐거운 기술입니다. 하지만 Trino의 리소스 사용량은 일반적인 방법으론 CloudWatch로 트래킹하기 어려웠고(나만 어려웠던 걸지도..?), CloudWatch 기반으로 오토스케일링을 하는 EMR은 변동적인 쿼리 사용량에 반영하여 오토스케일링하기 어렵습니다.
