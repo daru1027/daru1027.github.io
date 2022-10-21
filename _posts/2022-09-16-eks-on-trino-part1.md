@@ -3,7 +3,7 @@ layout: post
 title: "EKS에 Trino 구축하기 #1"
 tags: EKS Trino Kubernetes
 ---
-해당 포스트는 분산 쿼리 엔진인 **Trino**를 **AWS EKS(Elastic Kubernetes Service)** 클러스터 환경에 구축하는 내용을 담았습니다.
+해당 포스트는 분산 쿼리 엔진인 **Trino**를 클러스터 환경인 **AWS EKS(Elastic Kubernetes Service)**에 구축하는 내용을 담았습니다.
 <br/><br/>
 ## 시작하기에 앞서
 ### EKS란?
@@ -24,7 +24,7 @@ tags: EKS Trino Kubernetes
 ## 구축 배경
 EKS에 Trino를 구축하게 된 이유로 크게 2가지가 있습니다.
 <br/><br/>
-기존에는 AWS EMR 클러스터 환경에 Trino를 구축하여 운영했습니다. 클러스터 환경을 쓰는 만큼 오토스케일링(Autoscaling)은 상상만으로도 즐거운 기술입니다. 하지만 Trino의 리소스 사용량은 일반적인 방법으론 CloudWatch로 트래킹하기 어려웠고, CloudWatch 기반으로 오토스케일링을 하는 EMR은 변동적인 쿼리 사용량에 대비하여 오토스케일링하기 어렵습니다.
+기존에는 AWS EMR 클러스터 환경에 Trino를 구축하여 운영했습니다. 클러스터 환경을 쓰는 만큼 오토스케일링(Autoscaling)은 상상만으로도 즐거운 기술입니다. 하지만 Trino의 리소스 사용량은 일반적인 방법으론 CloudWatch로 트래킹하기 어려웠고(나만 어려웠던 걸지도..?), CloudWatch 기반으로 오토스케일링을 하는 EMR은 변동적인 쿼리 사용량에 대비하여 오토스케일링하기 어렵습니다.
 <br/><br/>
 또한 EMR은 서비스 업데이트를 진행할 때 배포하는 데 시간이 소요되어 업무 환경에 영향을 끼치게 됩니다. 급히 적용되어야 할 Catalog를 반영할 일이 있더라도 EMR 리소스를 회수하고 다시 배포하기까지 쿼리 엔진을 제공할 수 없게 됩니다.
 <br/><br/>
