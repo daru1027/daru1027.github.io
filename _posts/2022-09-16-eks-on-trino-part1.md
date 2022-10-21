@@ -3,8 +3,9 @@ layout: post
 title: "EKS에 Trino 구축하기 #1"
 tags: EKS Trino Kubernetes
 ---
-해당 포스트는 분산 쿼리 엔진인 **Trino**를 클러스터 환경인 **AWS EKS(Elastic Kubernetes Service)**에 구축하는 내용을 담았습니다. 
-내용에 들어가기 전 배경을 설명하는 포스트로 디테일 한 내용은 다음 포스트부터 다룹니다😀.
+해당 포스트는 분산 쿼리 엔진인 **Trino**를 클러스터 환경인 **AWS EKS(Elastic Kubernetes Service)**에 구축하는 내용을 담았습니다.
+<br/><br/>
+내용에 들어가기 전 배경을 설명하는 포스트로 디테일 한 부분은 다음 포스트부터 다룹니다😀.
 <br/><br/>
 ## 시작하기에 앞서
 ### EKS란?
