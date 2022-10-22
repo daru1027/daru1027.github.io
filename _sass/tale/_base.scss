@@ -17,6 +17,7 @@ html {
 
   @media (min-width: 600px) {
     font-size: 18px;
+    font-family: $sans-serif;
   }
 }
 
@@ -38,6 +39,7 @@ h6 {
 a {
   color: $blue;
   text-decoration: none;
+  font-family: $sans-serif;
 }
 
 blockquote {
