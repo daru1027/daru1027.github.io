@@ -6,7 +6,7 @@ tags: EKS Trino Kubernetes
 해당 포스트는 **EKS에 Trino를 구축하는 과정**을 담았습니다🤗. 올해 4월쯤 진행한 내용을 기준으로 작성하여 최신 내용과 다른 부분이 있을 수 있어 이 점 유의해서 읽어주세요!
 ## 목차
 1. [들어가며](#들어가며)
-2. [애플리케이션 관리 도구 Helm](#애플리케이션-관리-도구-helm)
+2. [애플리케이션 관리 도구 Helm](#helm-을-사용하여)
 <br/><br/>
    
 ## 들어가며
@@ -19,7 +19,7 @@ tags: EKS Trino Kubernetes
 EKS에 대한 자세한 내용은 [공식문서](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)를 참고하세요!🤗
 <br/><br/>
 <img src = "/post_images/eks-on-trino-part1/trino.png" width="400" height=auto>
-**Trino**는 효율적이고 짧은 지연 시간으로 운영하기 위해 병렬화된 분산 쿼리 엔진입니다. 
+**Trino**는 효율적이고 짧은 지연 시간으로 운영하기 위해 **병렬화된 분산 쿼리 엔진입니다.** 
 또한 Tableau, Power BI, Superset 등과 같은 BI 도구와 함께 작동하는 ANSI SQL 호환 쿼리 엔진입니다.
 **Trino**는 HDFS/Hive 기반으로 어려운 분석 쿼리를 가능하게 할 정도로 뛰어난 성능을 가지고 있습니다.
 개인적으로 가장 큰 장점이라고 생각한 부분은, Trino라는 동일한 환경에서 **다양한 데이터 소스 쿼리를 처리할 수 있다는 점**입니다.
@@ -27,7 +27,7 @@ Trino가 지원하는 Connector는 스토리지, 관계형데이터베이스, No
 Trino에 대한 자세한 내용은 [공식문서](https://trino.io)를 참고하세요!🤗
 <br/><br/>
 
-## 애플리케이션 관리 도구 Helm
+## Helm을 사용하여
 EKS에 Trino를 배포하는 도구로 **Helm**을 사용했는데, **Helm**을 설명하면 다음과 같습니다.
 <br/><br/>
 **Helm은 Kubernetes 애플리케이션 관리를 지원합니다.**
@@ -35,3 +35,4 @@ Helm 차트는 복잡한 애플리케이션도 유지 및 반복할 수 있는 �
 또한 이전 버전으로 쉽게 롤백하거나, 업그레이드하는 데 유용합니다.
 차트는 쉽게 생성할 수 있고, 버전 관리가 용이하며 공용 또는 개인 서버에서 간단히 공유 및 호스팅할 수 있습니다.
 Helm에 대한 자세한 내용은 [공식문서](https://helm.sh)에 상세히 적혀있습니다!🤗
+<br/><br/>
