@@ -12,7 +12,9 @@ tags: EKS Trino Kubernetes
 <br/><br/>
 <img src = "/post_images/eks-on-trino-part1/amazon_eks.png" width="400" height=auto>
 **EKS란, Elastic Kubernetes Service**의 약자로, **AWS에서 제공하는 Kubernetes** 서비스입니다. 
-**EKS**는 자체 컨트롤 플레인 또는 노드를 설치 및 운영할 필요 없이 사용할 수 있습니다.
+**EKS**는 자체 컨트롤 플레인 또는 노드를 설치 및 운영할 필요 없이 사용할 수 있습니다. 
+또한 여러 **AWS 서비스와 통합되어** 애플리케이션에 대한 확장성과 보안을 효과적으로 제공하는 장점이 있습니다.
+EKS에 대한 자세한 내용은 [공식문서](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)를 참고하세요!
 <br/><br/>
 <img src = "/post_images/eks-on-trino-part1/trino.png" width="400" height=auto>
 **Trino**는 효율적이고 짧은 지연 시간으로 운영하기 위해 병렬화된 분산 쿼리 엔진입니다. 
