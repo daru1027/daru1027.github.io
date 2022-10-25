@@ -7,7 +7,7 @@ tags: EKS Trino Kubernetes
 ## 목차
 1. [들어가며](#들어가며)
 2. [Helm을 사용하여](#helm을-사용하여)
-3. [배포 준비](#배포-준비)
+3. [Trino 배포하기](#trino-배포하기)
 <br/><br/>
    
 ## 들어가며
@@ -50,4 +50,23 @@ EKS는 AWS서비스를 통해 클러스터 환경을 관리하는 것 외에 **K
 Helm도 마찬가지로 EKS에 동일하게 적용할 수 있으며, 애플리케이션을 배포할 때 유용하게 사용할 수 있습니다.
 <br/><br/>
 
-# 배포 준비
+## Trino 배포하기
+> 📢 배포 과정 설명에서 EKS 구축 과정 및 nginx-ingress-controller 세팅 과정 등 세부적으로 필요한 환경 구축과정은 생략했습니다.
+
+대략적인 설명은 마무리하고 Trino 배포 과정을 설명하자면 아래와 같습니다.
+<br/><br/>
+
+### 차트 저장소를 활용하여 배포하기
+Helm Chart Repository(이하 차트 저장소)는 패키지형 차트를 저장하고 공유할 수 있는 장소입니다.
+Trino 또한 공식 차트 저장소를 가지고 있고 당시 사용한 차트의 정보는 표와 같습니다.
+
+|NAME|CHART VERSION|APP VERSION|CHART URL|
+|---|---|---|---|
+|trino/trino|0.5.0|372|https://trinodb.github.io/charts/|
+
+## 애로사항 및 코드 리펙토링
+차트 템플릿 구조가 어떻고, access-rule과 같이 특정 내용 적용할 수 없던 부분
+
+## 최종배포
+
+## 마무리
