@@ -12,13 +12,13 @@ tags: EKS Trino Kubernetes
 ## 들어가며
 본 내용을 시작하기에 앞서 **EKS와 Trino에 대해서 간략히 설명하자면** 다음과 같습니다.
 <br/><br/>
-<img src = "/post_images/eks-on-trino-part1/amazon_eks.png" width="400" height=auto>
+<img src = "/post_images/eks-on-trino/amazon_eks.png" width="400" height=auto>
 **EKS란, Elastic Kubernetes Service**의 약자로, **AWS에서 제공하는 Kubernetes** 서비스입니다. 
 **EKS**는 자체 컨트롤 플레인 또는 노드를 설치 및 운영할 필요 없이 사용할 수 있습니다. 
 또한 여러 **AWS 서비스와 통합되어 애플리케이션에 대한 확장성과 보안을 효과적으로 제공하는 장점**이 있습니다.
 EKS에 대한 자세한 내용은 [공식문서](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)를 참고하세요!🤗
 <br/><br/>
-<img src = "/post_images/eks-on-trino-part1/trino.png" width="400" height=auto>
+<img src = "/post_images/eks-on-trino/trino.png" width="400" height=auto>
 **Trino**는 효율적이고 짧은 지연 시간으로 운영하기 위해 **병렬화된 분산 쿼리 엔진입니다.** 
 또한 Tableau, Power BI, Superset 등과 같은 BI 도구와 함께 작동하는 ANSI SQL 호환 쿼리 엔진입니다.
 **Trino**는 HDFS/Hive 기반으로 어려운 분석 쿼리를 가능하게 할 정도로 뛰어난 성능을 가지고 있습니다.
@@ -30,6 +30,7 @@ Trino에 대한 자세한 내용은 [공식문서](https://trino.io)를 참고�
 ## Helm을 사용하여
 EKS에 Trino를 배포하는 도구로 **Helm**을 사용했는데, **Helm**을 설명하면 다음과 같습니다.
 <br/><br/>
+<img src = "/post_images/eks-on-trino/helm.png" width="400" height=auto>
 **Helm은 Kubernetes 애플리케이션 관리를 지원합니다.**
 Helm 차트는 복잡한 애플리케이션도 유지 및 반복할 수 있는 배포기능을 제공합니다.
 또한 이전 버전으로 쉽게 롤백하거나, 업그레이드하는 데 유용합니다.
