@@ -61,7 +61,7 @@ Helm Chart Repository(이하 차트 저장소)는 패키지형 차트를 저장�
 Trino 또한 공식 차트 저장소를 가지고 있고 당시 사용한 차트의 정보는 표와 같습니다.
 
 |NAME|CHART VERSION|APP VERSION|CHART URL|
-|---|---|---|---|
+|:---:|:---:|:---:|:---:|
 |trino/trino|0.5.0|372|https://trinodb.github.io/charts/|
 
 ## 애로사항 및 코드 리펙토링
