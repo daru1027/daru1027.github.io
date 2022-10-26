@@ -63,6 +63,20 @@ img {
   max-width: 100%;
 }
 
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  width: calc(100% + 2rem);
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+thead+tbody {
+  border-top: 3px double #e5e5e5;
+}
+
 td {
   vertical-align: top;
+  border: 1px solid #e5e5e5;
 }
