@@ -76,7 +76,7 @@ $ helm repo add trino https://trinodb.github.io/charts/
 ```bash
 $ helm search repo trino/trino
 ```
-
+Helm은 차트라는 패키징 형식을 사용합니다. 따라서 차트는 디렉토리 내부의 파일 모음으로 구성되어있습니다. 차트 저장소는 이러한 구성을 갖춰두고 배포되어있다고 이해하면 쉽습니다.
 
 ## 애로사항 및 코드 리펙토링
 차트 템플릿 구조가 어떻고, access-rule과 같이 특정 내용 적용할 수 없던 부분
@@ -84,3 +84,5 @@ $ helm search repo trino/trino
 ## 최종배포
 
 ## 마무리
+
+## 참고자료
