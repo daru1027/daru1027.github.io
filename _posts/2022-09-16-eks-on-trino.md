@@ -6,7 +6,7 @@ tags: EKS Trino Kubernetes
 해당 포스트는 **EKS에 Trino를 구축하는 과정**을 담았습니다🤗. 올해 4월쯤 진행한 내용을 기준으로 작성하여 최신 내용과 다른 부분이 있을 수 있어 이 점 유의해서 읽어주세요!
 ## 목차
 1. [들어가며](#들어가며)
-2. [Helm을 사용하여](#helm을-사용하여)
+2. [Kubernetes 패키지 매니저 Helm](#kubernetes-패키지-매니저-helm)
 3. [Trino 배포하기](#trino-배포하기)
 <br/><br/>
    
@@ -32,8 +32,9 @@ Trino가 지원하는 Connector는 스토리지, 관계형데이터베이스, No
 Trino에 대한 자세한 내용은 [공식문서](https://trino.io)를 참고하세요!🤗
 <br/><br/>
 
-## Helm을 사용하여
-EKS에 Trino를 배포하는 도구로 **Helm**을 사용했는데, **Helm**을 설명하면 다음과 같습니다.
+## Kubernetes 패키지 매니저 Helm
+Helm이란 Kubernetes 패키지 매니징 툴 입니다.
+EKS에 Trino를 배포하는 도구로 **Helm**을 사용했는데, **Helm**애 대해 자세히 살펴보면 다음과 같습니다.
 <br/><br/>
 
 <img src = "/post_images/eks-on-trino/helm.png" width=auto height="200">
@@ -47,17 +48,17 @@ Helm에 대한 자세한 내용은 [공식문서](https://helm.sh)에 상세히 
 
 EKS는 AWS서비스를 통해 클러스터 환경을 관리하는 것 외에 **Kubernetes와 거의 동일합니다.** 
 따라서 **Kubernetes에 적용하는 도구들은 EKS에도 동일하게 적용할 수 있습니다.**
-Helm도 마찬가지로 EKS에 동일하게 적용할 수 있으며, 애플리케이션을 배포할 때 유용하게 사용할 수 있습니다.
+마찬가지로 EKS에도 동일하게 Helm을 사용할 수 있으며, 애플리케이션을 배포할 때 유용하게 사용할 수 있습니다.
 <br/><br/>
 
 ## Trino 배포하기
 > 📢 배포 과정 설명에서 EKS 구축 과정 및 nginx-ingress-controller 세팅 과정 등 **세부적으로 필요한 환경 구축 과정은 생략했습니다.**
 
-대략적인 설명은 마무리하고 Trino 배포 과정을 설명하자면 아래와 같습니다.
+대략적인 설명은 마무리하고, Trino 배포 과정을 설명하면 아래와 같습니다.
 <br/><br/>
 
 ### 차트 저장소를 활용하여 배포하기
-Helm Chart Repository(이하 차트 저장소)는 패키지형 차트를 저장하고 공유할 수 있는 장소입니다.
+**Helm Chart Repository**(이하 차트 저장소)는 패키지형 차트를 저장하고 공유할 수 있는 장소입니다.
 Trino 또한 공식 차트 저장소를 가지고 있고 당시 사용한 차트의 정보는 표와 같습니다.
 
 |NAME|CHART VERSION|APP VERSION|CHART URL|
