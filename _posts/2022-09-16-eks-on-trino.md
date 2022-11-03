@@ -66,8 +66,17 @@ Trino 또한 공식 차트 저장소를 가지고 있고 당시 사용한 차트
 |trino/trino|0.5.0|372|https://trinodb.github.io/charts/|
 
 해당 차트의 릴리즈를 관리하는 github 레포는 [여기](https://github.com/trinodb/charts)에서 확인할 수 있습니다.
+<br/><br/>
 
-먼저 Trino 차트 저장소에서 repo를 추가합니다.
+먼저 Trino 차트 저장소에서 **repo를 추가합니다.**
+```bash
+$ helm repo add trino https://trinodb.github.io/charts/
+```
+아래 명령어를 통해 repo가 잘 추가됐는지 확인할 수 있습니다.
+```bash
+$ helm search repo trino/trino
+```
+
 
 ## 애로사항 및 코드 리펙토링
 차트 템플릿 구조가 어떻고, access-rule과 같이 특정 내용 적용할 수 없던 부분
