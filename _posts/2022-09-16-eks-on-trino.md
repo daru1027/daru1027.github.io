@@ -43,6 +43,15 @@ EKS에 Trino를 배포하는 도구로 **Helm**을 사용했는데, **Helm**애 
 Helm 차트는 복잡한 애플리케이션도 유지 및 반복할 수 있는 배포기능을 제공합니다.
 또한 이전 버전으로 쉽게 롤백하거나, 업그레이드하는 데 유용합니다.
 **차트는 쉽게 생성할 수 있고, 버전 관리가 용이하며 공용 또는 개인 서버에서 간단히 공유 및 호스팅할 수 있습니다.**
+<br/><br/>
+
+**Helm Chart Repository**(이하 차트 저장소)는 패키지형 차트를 저장하고 공유할 수 있는 장소입니다.
+**Helm은 차트라는 패키징 형식**을 사용합니다. 따라서 차트에는 디렉토리 내부의 파일 모음으로 구성되어있습니다. 
+차트 저장소는 이러한 구성을 갖춰두고 배포되어있으며 이를 가져와 사용할 수 있다고 이해하면 쉽습니다.
+구성 파일 중 중요한 2개를 짚고 넘어가면, `values.yaml` 파일과 `Templates` 폴더 파일 입니다.
+<br/><br/>
+
+### 
 Helm에 대한 자세한 내용은 [공식문서](https://helm.sh)에 상세히 적혀있습니다!🤗
 <br/><br/>
 
@@ -58,7 +67,6 @@ EKS는 AWS서비스를 통해 클러스터 환경을 관리하는 것 외에 **K
 <br/><br/>
 
 ### 차트 저장소를 활용하여 배포하기
-**Helm Chart Repository**(이하 차트 저장소)는 패키지형 차트를 저장하고 공유할 수 있는 장소입니다.
 Trino 또한 공식 차트 저장소를 가지고 있고 당시 사용한 차트의 정보는 표와 같습니다.
 
 |NAME|CHART VERSION|APP VERSION|CHART URL|
@@ -68,7 +76,7 @@ Trino 또한 공식 차트 저장소를 가지고 있고 당시 사용한 차트
 해당 차트의 릴리즈를 관리하는 github 레포는 [여기](https://github.com/trinodb/charts)에서 확인할 수 있습니다.
 <br/><br/>
 
-먼저 Trino 차트 저장소에서 **repo를 추가합니다.**
+먼저 **Trino 차트 저장소에서 repo를 추가합니다.**
 ```bash
 $ helm repo add trino https://trinodb.github.io/charts/
 ```
@@ -76,7 +84,7 @@ $ helm repo add trino https://trinodb.github.io/charts/
 ```bash
 $ helm search repo trino/trino
 ```
-Helm은 차트라는 패키징 형식을 사용합니다. 따라서 차트는 디렉토리 내부의 파일 모음으로 구성되어있습니다. 차트 저장소는 이러한 구성을 갖춰두고 배포되어있다고 이해하면 쉽습니다.
+ 
 
 ## 애로사항 및 코드 리펙토링
 차트 템플릿 구조가 어떻고, access-rule과 같이 특정 내용 적용할 수 없던 부분
