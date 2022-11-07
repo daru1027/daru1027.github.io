@@ -148,7 +148,7 @@ server:
 #### 4. values.yaml 파일 수정
 위에 언급한 것처럼 내려받은 `values.yaml` 파일을 수정하여 worker 수를 조정하는 등 커스터마이징을 할 수 있습니다.
 Trino를 운영하면서 자주 변경하는 부분을 예시로 들면 아래와 같습니다.
-1. Trino 카탈로그 추가/변경
+* **Trino 카탈로그 추가/변경**
     ```yaml
     additionalCatalogs:
     #aws glue catalogs
@@ -161,17 +161,15 @@ Trino를 운영하면서 자주 변경하는 부분을 예시로 들면 아래�
         hive.metastore.glue.endpoint-url=https://glue.ap-northeast-2.amazonaws.com
     
     #mongodb catalogs
-    ...
-    #postgresql
-    ...
+    ~
     
     ```
-2. Trino Worker 조정
+* **Trino Worker 조정**
     ```yaml
     server:
       workers: 2 #<--- change here!
     ```
-3. Affinity rule 적용 예시
+* **Affinity rule 적용 예시**
     ```yaml
     affinity:
       podAntiAffinity:
@@ -191,6 +189,10 @@ Trino를 운영하면서 자주 변경하는 부분을 예시로 들면 아래�
 ```bash
 $ helm install trino trino/trino -n [namespace name] -f values.yaml
 ```
+<br/><br/>
+### 로컬 환경에서 차트 템플릿을 통해 배포하기
+
+
 ## 애로사항 및 코드 리펙토링
 차트 템플릿 구조가 어떻고, access-rule과 같이 특정 내용 적용할 수 없던 부분
 
