@@ -184,6 +184,7 @@ Trino를 운영하면서 자주 변경하는 부분을 예시로 들면 아래�
                      - trino
               topologyKey: "kubernetes.io/hostname"
     ```
+
 #### 5. helm install trino
 `-f` 플래그를 통해 외부 values.yaml 파일을 활용하여 Trino를 배포합니다.
 ```bash
