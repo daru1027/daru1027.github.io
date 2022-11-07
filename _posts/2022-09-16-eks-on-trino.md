@@ -105,8 +105,18 @@ $ helm repo add trino https://trinodb.github.io/charts/
 $ helm search repo trino/trino
 ```
 #### 3. values.yaml 파일 수정
-
- 
+바로 `helm install` 명령어를 통해 trino를 바로 배포할 수 있습니다. 
+하지만 trino에서 사용할 **카탈로그를 정의하여 배포하거나, worker 수를 조정하거나, Affinity rule을 적용하는 등 일부 커스터마이징이 필요합니다.** 
+차트 Template은`-f` 플래그를 통해 외부 values.yaml 파일을 활용할 수 있습니다.
+<br/><br/>
+먼저 로컬로 values.yaml 파일을 내려받습니다(Helm 차트를 git으로 관리하는 [repo](https://github.com/trinodb/charts)에서 복사해서 사용해도 무방함).
+```bash
+$ helm pull trino/trino
+$ cd trino
+$ ls
+---
+Chart.yaml  README.md   ci          templates   values.yaml
+```
 
 ## 애로사항 및 코드 리펙토링
 차트 템플릿 구조가 어떻고, access-rule과 같이 특정 내용 적용할 수 없던 부분
