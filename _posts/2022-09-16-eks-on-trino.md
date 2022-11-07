@@ -51,7 +51,7 @@ Helm 차트는 복잡한 애플리케이션도 유지 및 반복할 수 있는 �
 구성에 대한 예시는 아래와 같습니다.
 ```text
 ├── Chart.yaml
-├── charts
+├── ...
 ├── templates
 │   ├── NOTES.txt
 │   ├── _helpers.tpl
@@ -104,12 +104,12 @@ $ helm repo add trino https://trinodb.github.io/charts/
 ```bash
 $ helm search repo trino/trino
 ```
-#### 3. values.yaml 파일 수정
-바로 `helm install` 명령어를 통해 trino를 바로 배포할 수 있습니다. 
-하지만 trino에서 사용할 **카탈로그를 정의하여 배포하거나, worker 수를 조정하거나, Affinity rule을 적용하는 등 일부 커스터마이징이 필요합니다.** 
-차트 Template은`-f` 플래그를 통해 외부 values.yaml 파일을 활용할 수 있습니다.
+#### 3. values.yaml 파일 내려받기
+바로 `helm install` 명령어를 통해 Trino를 바로 배포할 수 있습니다. 
+하지만 Trino에서 사용할 **카탈로그를 정의하여 배포하거나, worker 수를 조정하거나, Affinity rule을 적용하는 등 일부 커스터마이징이 필요합니다.** 
+차트 Template은 `-f` 플래그를 통해 **외부 values.yaml 파일을 활용할 수 있습니다.**
 <br/><br/>
-먼저 로컬로 values.yaml 파일을 내려받습니다(Helm 차트를 git으로 관리하는 [repo](https://github.com/trinodb/charts)에서 복사해서 사용해도 무방함).
+먼저 `values.yaml` **파일을 내려받습니다**(git [repo](https://github.com/trinodb/charts)에서 복사해서 사용해도 괜찮습니다).
 ```bash
 $ helm pull trino/trino
 $ cd trino
@@ -117,7 +117,80 @@ $ ls
 ---
 Chart.yaml  README.md   ci          templates   values.yaml
 ```
+`values.yaml` 파일을 살펴보면, 아래와 예시와 같은 형식으로 값이 선언되어있습니다.
+```yaml
+image:
+  repository: trinodb/trino
+  # pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart version.
+  tag: 375
 
+server:
+  workers: 2
+  node:
+    environment: production
+    dataDir: /data/trino
+    pluginDir: /usr/lib/trino/plugin
+  log:
+    trino:
+      level: INFO
+  config:
+    path: /etc/trino
+    http:
+      port: 8080
+    https:
+      enabled: false
+      port: 8443
+      keystore:
+        path: ""
+~
+```
+#### 4. values.yaml 파일 수정
+위에 언급한 것처럼 내려받은 `values.yaml` 파일을 수정하여 worker 수를 조정하는 등 커스터마이징을 할 수 있습니다.
+Trino를 운영하면서 자주 변경하는 부분을 예시로 들면 아래와 같습니다.
+1. Trino 카탈로그 추가/변경
+    ```yaml
+    additionalCatalogs:
+    #aws glue catalogs
+      hive: |
+        connector.name=hive
+        hive.metastore=glue
+        hive.metastore.glue.aws-access-key=AWS_ACCESS_KEY
+        hive.metastore.glue.aws-secret-key=AWS_SECRET_KEY
+        hive.metastore.glue.region=ap-northeast-2
+        hive.metastore.glue.endpoint-url=https://glue.ap-northeast-2.amazonaws.com
+    
+    #mongodb catalogs
+    ...
+    #postgresql
+    ...
+    
+    ```
+2. Trino Worker 조정
+    ```yaml
+    server:
+      workers: 2 #<--- change here!
+    ```
+3. Affinity rule 적용 예시
+    ```yaml
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                 - key: app
+                   operator: In
+                   values:
+                     - trino
+              topologyKey: "kubernetes.io/hostname"
+    ```
+#### 5. helm install trino
+`-f` 플래그를 통해 외부 values.yaml 파일을 활용하여 Trino를 배포합니다.
+```bash
+$ helm install trino trino/trino -n [namespace name] -f values.yaml
+```
 ## 애로사항 및 코드 리펙토링
 차트 템플릿 구조가 어떻고, access-rule과 같이 특정 내용 적용할 수 없던 부분
 
