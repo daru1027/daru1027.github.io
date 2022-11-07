@@ -190,15 +190,9 @@ Trino를 운영하면서 자주 변경하는 부분을 예시로 들면 아래�
 ```bash
 $ helm install trino trino/trino -n [namespace name] -f values.yaml
 ```
-<br/><br/>
+
 ### 로컬 환경에서 차트 템플릿을 통해 배포하기
-
-
-## 애로사항 및 코드 리펙토링
-차트 템플릿 구조가 어떻고, access-rule과 같이 특정 내용 적용할 수 없던 부분
-
-## 최종배포
-
+대부분의 오픈소스 기반 서비스들은 
 ## 마무리
 
 ## 참고자료
