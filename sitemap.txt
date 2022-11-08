@@ -1,4 +1,0 @@
-https://daru1027.github.io
-https://daru1027.github.io/about
-https://daru1027.github.io/tags
-https://daru1027.github.io/2022-11-08/eks-on-trino-with-helm
