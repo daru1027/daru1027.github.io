@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://daru1027.github.io</loc>
+    <lastmod>2022-11-08</lastmod>
+  </url>
+  <url>
+    <loc>https://daru1027.github.io/tags</loc>
+    <lastmod>2022-11-08</lastmod>
+  </url>
+  <url>
+    <loc>https://daru1027.github.io/about</loc>
+    <lastmod>2022-11-08</lastmod>
+  </url>
+  <url>
+    <loc>https://daru1027.github.io/2022-11-08/eks-on-trino-with-helm</loc>
+    <lastmod>2022-11-08</lastmod>
+  </url>
+</urlset>
