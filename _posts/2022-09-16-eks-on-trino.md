@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "EKS에 Trino 구축하기 with. Helm"
+title: "EKS에 Trino 구축하기 w/Helm"
 tags: EKS Trino Kubernetes
 ---
 해당 포스트는 **EKS에 Trino를 구축하는 과정**을 담았습니다🤗. 올해 4월쯤 진행한 내용을 기준으로 작성하여 최신 내용과 다른 부분이 있을 수 있어 이 점 유의해서 읽어주세요!
@@ -230,5 +230,7 @@ Trino에 대한 자세한 설명이나 EKS 설정 관련한 내용 등 추가적
 
 ## 참고자료
 [EKS 공식문서](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)
+<br/>
 [Trino 공식문서](https://trino.io)
+<br/>
 [Helm 공식문서](https://helm.sh)
