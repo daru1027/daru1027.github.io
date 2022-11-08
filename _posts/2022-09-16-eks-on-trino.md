@@ -229,6 +229,6 @@ Trino에 대한 자세한 설명이나 EKS 설정 관련한 내용 등 추가적
 <br/><br/>
 
 ## 참고자료
-* https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html
-* https://trino.io
-* https://helm.sh
+[EKS 공식문서](https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html)
+[Trino 공식문서](https://trino.io)
+[Helm 공식문서](https://helm.sh)
