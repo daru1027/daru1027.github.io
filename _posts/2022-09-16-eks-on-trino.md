@@ -35,7 +35,7 @@ Trino에 대한 자세한 내용은 [공식문서](https://trino.io)를 참고�
 <br/><br/>
 
 ## Kubernetes 패키지 매니저 Helm
-Helm이란 Kubernetes 패키지 매니징 툴 입니다.
+Helm이란 **Kubernetes 패키지 매니징 툴** 입니다.
 EKS에 Trino를 배포하는 도구로 **Helm**을 사용했는데, **Helm**애 대해 자세히 살펴보면 다음과 같습니다.
 <br/><br/>
 
@@ -148,7 +148,7 @@ server:
 ~
 ```
 #### 4. values.yaml 파일 수정
-위에 언급한 것처럼 내려받은 `values.yaml` 파일을 수정하여 worker 수를 조정하는 등 커스터마이징을 할 수 있습니다.
+위에 언급한 것처럼 내려받은 `values.yaml` 파일을 수정하여 worker 수를 조정하는 등 **커스터마이징을 할 수 있습니다.**
 Trino를 운영하면서 자주 변경하는 부분을 예시로 들면 아래와 같습니다.
 * **Trino 카탈로그 추가/변경**
     ```yaml
@@ -196,7 +196,7 @@ $ helm install trino trino/trino -n [namespace name] -f values.yaml
 
 ### 로컬 환경에서 차트 템플릿을 통해 배포하기
 필요한 기능 대부분은 위에 소개한 방법으로 커스터마이징하여 배포할 수 있습니다. 
-하지만 **Trino** 차트 버전 `0.5.0`의 경우 몇몇 제약이 있었습니다.
+하지만 **Trino 차트 버전** `0.5.0`**의 경우 몇몇 제약이 있었습니다.**
 json-serde를 설치하기 위해 init Container를 추가하면서 emptyDir을 통해 메인 Container와 볼륨 마운팅을 할 필요가 있었는데, 이를 위에 소개한 방법으론 적용하기 어려운 부분이 있었습니다(지금 차트 버전에선 될지도...😂).
 이처럼 차트 **템플릿에서 제공하는 기능 외에** 추가적인 환경 조정이 필요한 경우 아래와 같은 방법을 통해서 해결할 수 있습니다.
 <br/><br/>
@@ -212,7 +212,7 @@ Chart.yaml  README.md   ci          templates   values.yaml
 ```
 #### 2. templates 폴더 파일 수정
 Trino의 경우 `templates` 폴더 안에 `deployment-coordinator.yaml`, `deployment-worker.yaml`과 같은 파일들이 있습니다.
-각 파일들은 Trino 서비스를 운영하기 위한 리소스들을 정의한 파일입니다.
+각 파일들은 **Trino 서비스를 운영하기 위한 리소스들을 정의한 파일입니다.**
 안에 변수를 받는 내용들이 있는데, 해당 부분이 `values.yaml`에서 기입한 내용으로 채워집니다.
 `templates` 폴더 안에 있는 파일 내용을 수정하여 emptyDir를 적용하는 등 추가적인 환경을 구성할 수 있습니다.
 
@@ -224,7 +224,7 @@ $ helm install trino . -n [namespace name] -f values.yaml
 <br/><br/>
 
 ## 마무리하며
-Trino에 대한 자세한 설명이나 EKS 설정 관련한 내용 등 추가적인 내용은 다음 포스팅에서 따로 다뤄보도록 하겠습니다🤗.
+Trino에 대한 자세한 설명이나 EKS 설정 관련한 내용 등 추가적인 내용은 **다음 포스팅에서 따로 다뤄보도록 하겠습니다🤗.**
 부족한 부분이 많지만 작은 지식이나마 누군가에게 도움이 되길 바랍니다!
 <br/><br/>
 
