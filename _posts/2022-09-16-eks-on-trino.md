@@ -107,7 +107,7 @@ $ helm search repo trino/trino
 #### 3. values.yaml 파일 내려받기
 바로 `helm install` 명령어를 통해 Trino를 바로 배포할 수 있습니다. 
 하지만 Trino에서 사용할 **카탈로그를 정의하여 배포하거나, worker 수를 조정하거나, Affinity rule을 적용하는 등 일부 커스터마이징이 필요합니다.** 
-차트 Template은 `-f` 플래그를 통해 **외부 values.yaml 파일을 활용할 수 있습니다.**
+차트 Template은 `-f` 플래그를 통해 **외부** `values.yaml` **파일을 활용할 수 있습니다.**
 <br/><br/>
 먼저 `values.yaml` **파일을 내려받습니다**(git [repo](https://github.com/trinodb/charts)에서 복사해서 사용해도 괜찮습니다).
 ```bash
@@ -186,13 +186,37 @@ Trino를 운영하면서 자주 변경하는 부분을 예시로 들면 아래�
     ```
 
 #### 5. helm install trino
-`-f` 플래그를 통해 외부 values.yaml 파일을 활용하여 Trino를 배포합니다.
+`-f` 플래그를 통해 외부 `values.yaml` 파일을 활용하여 Trino를 배포합니다.
 ```bash
 $ helm install trino trino/trino -n [namespace name] -f values.yaml
 ```
+<br/><br/>
 
 ### 로컬 환경에서 차트 템플릿을 통해 배포하기
-대부분의 오픈소스 기반 서비스들은 
-## 마무리
+필요한 기능 대부분은 위에 소개한 방법으로 무난하게 커스터마이징하여 배포 가능합니다. 
+하지만 **Trino** 차트 버전 `0.5.0`의 경우 몇몇 제약이 있었습니다.
+json-serde를 설치하기 위해 init Container를 추가하면서 emptyDir을 통해 메인 Container와 볼륨 마운팅을 할 필요가 있었는데, 이를 위에 소개한 방법으론 적용하기 어려운 부분이 있었습니다(지금 차트 버전에선 될지도...😂).
+이처럼 차트 **템플릿에서 제공하는 기능 외에** 추가적인 환경 조정이 필요한 경우 아래와 같은 방법을 통해서 해결할 수 있습니다.
+<br/><br/>
 
+#### 1. helm pull 명령어를 통해 로컬에 차트 내려받기
+위에 소개한 `values.yaml` 파일 수정을 위해 차트를 내려받은 것과 같은 방법으로 차트를 가져옵니다.
+```bash
+$ helm pull trino/trino
+$ cd trino
+$ ls
+---
+Chart.yaml  README.md   ci          templates   values.yaml
+```
+#### 2. templates 폴더 파일 수정
+Trino의 경우 templates 폴더 안에 `deployment-coordinator.yaml`, `deployment-worker.yaml`과 같은 파일들이 있습니다.
+각 파일들은 Trino 서비스를 운영하기 위한 리소스들을 정의한 파일입니다.
+안에 변수를 받는 내용들이 있는데, 해당 부분이 `values.yaml`에서 기입된 내용으로 채워집니다.
+templates 폴더 안에 있는 파일 내용을 수정하여 emptyDir를 적용하는 등 추가적인 환경을 구성할 수 있습니다.
+
+#### 3. helm install trino
+로컬에 내려받은 파일에서 templates 폴더를 빠져나와 `Chart.yaml` 파일과 같은 위계에서 아래 명령어를 통해 배포할 수 있습니다.
+```bash
+$ helm install trino . -n [namespace name] -f values.yaml
+```
 ## 참고자료
