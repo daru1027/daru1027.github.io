@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "EKS에 Trino 구축하기"
+title: "EKS에 Trino 구축하기 with. Helm"
 tags: EKS Trino Kubernetes
 ---
 해당 포스트는 **EKS에 Trino를 구축하는 과정**을 담았습니다🤗. 올해 4월쯤 진행한 내용을 기준으로 작성하여 최신 내용과 다른 부분이 있을 수 있어 이 점 유의해서 읽어주세요!
@@ -8,6 +8,8 @@ tags: EKS Trino Kubernetes
 1. [들어가며](#들어가며)
 2. [Kubernetes 패키지 매니저 Helm](#kubernetes-패키지-매니저-helm)
 3. [Trino 배포하기](#trino-배포하기)
+4. [마무리하며](#마무리하며)
+5. [참고자료](#참고자료)
 <br/><br/>
    
 ## 들어가며
@@ -193,7 +195,7 @@ $ helm install trino trino/trino -n [namespace name] -f values.yaml
 <br/><br/>
 
 ### 로컬 환경에서 차트 템플릿을 통해 배포하기
-필요한 기능 대부분은 위에 소개한 방법으로 무난하게 커스터마이징하여 배포 가능합니다. 
+필요한 기능 대부분은 위에 소개한 방법으로 커스터마이징하여 배포할 수 있습니다. 
 하지만 **Trino** 차트 버전 `0.5.0`의 경우 몇몇 제약이 있었습니다.
 json-serde를 설치하기 위해 init Container를 추가하면서 emptyDir을 통해 메인 Container와 볼륨 마운팅을 할 필요가 있었는데, 이를 위에 소개한 방법으론 적용하기 어려운 부분이 있었습니다(지금 차트 버전에선 될지도...😂).
 이처럼 차트 **템플릿에서 제공하는 기능 외에** 추가적인 환경 조정이 필요한 경우 아래와 같은 방법을 통해서 해결할 수 있습니다.
@@ -209,14 +211,24 @@ $ ls
 Chart.yaml  README.md   ci          templates   values.yaml
 ```
 #### 2. templates 폴더 파일 수정
-Trino의 경우 templates 폴더 안에 `deployment-coordinator.yaml`, `deployment-worker.yaml`과 같은 파일들이 있습니다.
+Trino의 경우 `templates` 폴더 안에 `deployment-coordinator.yaml`, `deployment-worker.yaml`과 같은 파일들이 있습니다.
 각 파일들은 Trino 서비스를 운영하기 위한 리소스들을 정의한 파일입니다.
-안에 변수를 받는 내용들이 있는데, 해당 부분이 `values.yaml`에서 기입된 내용으로 채워집니다.
-templates 폴더 안에 있는 파일 내용을 수정하여 emptyDir를 적용하는 등 추가적인 환경을 구성할 수 있습니다.
+안에 변수를 받는 내용들이 있는데, 해당 부분이 `values.yaml`에서 기입한 내용으로 채워집니다.
+`templates` 폴더 안에 있는 파일 내용을 수정하여 emptyDir를 적용하는 등 추가적인 환경을 구성할 수 있습니다.
 
 #### 3. helm install trino
 로컬에 내려받은 파일에서 templates 폴더를 빠져나와 `Chart.yaml` 파일과 같은 위계에서 아래 명령어를 통해 배포할 수 있습니다.
 ```bash
 $ helm install trino . -n [namespace name] -f values.yaml
 ```
+<br/><br/>
+
+## 마무리하며
+Trino에 대한 자세한 설명이나 EKS 설정 관련한 내용 등 추가적인 내용은 다음 포스팅에서 따로 다뤄보도록 하겠습니다🤗.
+부족한 부분이 많지만 작은 지식이나마 누군가에게 도움이 되길 바랍니다!
+<br/><br/>
+
 ## 참고자료
+* https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/what-is-eks.html
+* https://trino.io
+* https://helm.sh
