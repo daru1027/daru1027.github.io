@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "EKS에 Trino 구축하기 w/ Helm"
+title: "EKS에 Trino 구축하기(with. Helm)"
 tags: EKS Trino Kubernetes AWS k8s
 ---
 해당 포스트는 **EKS에 Trino를 구축하는 과정**을 담았습니다🤗. 
