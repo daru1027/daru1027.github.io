@@ -5,10 +5,7 @@ tags: API Twitter Data Ads
 ---
 ## 목차
 1. [들어가며](#들어가며)
-2. [Kubernetes 패키지 매니저 Helm](#kubernetes-패키지-매니저-helm)
-3. [Trino 배포하기](#trino-배포하기)
-4. [마무리하며](#마무리하며)
-5. [참고자료](#참고자료)
+2. [Twitter Ads API 사용신청](#Twitter-Ads-API-사용신청)
 <br/><br/>
    
 ## 들어가며
@@ -20,7 +17,7 @@ tags: API Twitter Data Ads
 그럼 본격적으로 데이터를 제공하는 사람의 입장에서 Twitter Ads API를 사용하는 과정을 다뤄보도록 하겠습니다🙂.
 <br/><br/>
 
-##Twitter Ads API 사용신청
+## Twitter Ads API 사용신청
 대부분의 매체가 그렇듯 API를 활용하려면 사용 신청을 해야 합니다. 
 특히 광고처럼 프라이빗한 API의 경우 승인 절차가 더욱 복잡합니다. 
 트위터의 경우 다른 매체에 비해 절차가 꽤 까다로운(?) 경향이 있습니다😢.
@@ -31,8 +28,8 @@ Twitter Ads API [공식문서](https://developer.twitter.com/en/docs/twitter-ads
 3. Ads API 액세스 요청
 <br/><br/>
    
-###개발자 계정 가입
+### 개발자 계정 가입
 공식문서에 나오는 첫 번째 단계인 개발자 가입 절차는 아래 이미지와 같습니다. 
 개발자 계정에 가입하는 과정은 크게 어렵지 않고 국가 선택 및 API를 사용하려는 목적을 선택하면 됩니다.
 
-<img src = "/post_images/2023-01-31-get-data-with-twitter-ads-api/twitter-developer-signup-1" width=auto height=auto>
+<img src = "/post_images/2023-01-31-get-data-with-twitter-ads-api/twitter-developer-signup-1.png" width=auto height=auto>
