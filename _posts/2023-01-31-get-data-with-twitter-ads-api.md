@@ -5,9 +5,9 @@ tags: API Twitter Data Ads
 ---
 ## 목차
 1. [들어가며](#들어가며)
-2. [Twitter Ads API 사용신청](#Twitter-Ads-API-사용신청)
+2. [Twitter Ads API 사용신청](#twitter-ads-api-사용신청)
 3. [광고 데이터 구조 파악하기](#광고-데이터-구조-파악하기)
-4. [Python 코드 작성 및 데이터 가져오기](#Python-코드-작성-및-데이터-가져오기)
+4. [Python 코드 작성 및 데이터 가져오기](#python-코드-작성-및-데이터-가져오기)
 5. [마무리하며](#마무리하며)
 <br/><br/>
    
