@@ -30,6 +30,19 @@ Twitter Ads API [공식문서](https://developer.twitter.com/en/docs/twitter-ads
    
 ### 개발자 계정 가입
 공식문서에 나오는 첫 번째 단계인 개발자 가입 절차는 아래 이미지와 같습니다. 
-개발자 계정에 가입하는 과정은 크게 어렵지 않고 국가 선택 및 API를 사용하려는 목적을 선택하면 됩니다.
+개발자 계정에 가입하는 과정은 크게 어렵지 않습니다. 
+먼저 국가 선택 및 API를 사용하려는 목적을 선택하면 됩니다.
 
-<img src = "/post_images/2023-01-31-get-data-with-twitter-ads-api/twitter-developer-signup-1.png" width=auto height=auto>
+<img src = "/post_images/2023-01-31-get-data-with-twitter-ads-api/a-twitter-developer-signup-1.png" width=auto height=auto>
+
+다음 단계로 넘어가면 API와 관련한 정책 안내 및 약관 동의 절차를 진행합니다.
+
+<img src = "/post_images/2023-01-31-get-data-with-twitter-ads-api/a-twitter-developer-signup-2.png" width=auto height=auto>
+<br/><br/>
+
+### 프로젝트와 앱 생성 및 앱의 키와 토큰을 보관
+가입을 완료했다면 두 번째 단계를 진행하면 됩니다. 
+개발자 센터에서 프로젝트 생성을 진행합니다. 
+먼저 프로젝트 이름을 지어줍니다.
+
+<img src = "/post_images/2023-01-31-get-data-with-twitter-ads-api/b-twitter-developer-project-1.png" width=auto height=auto>
