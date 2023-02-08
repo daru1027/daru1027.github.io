@@ -66,3 +66,79 @@ OSI 모델은 국제 표준화 기구(ISO)에서 만든 계층 모델입니다.
 OSI 모델은 7계층으로 이뤄져 있으며, 표준 프로토콜을 사용하여 다양한 시스템이 통신할 수 있는 표준을 제공합니다. 
 위 그림과 같이 아래층부터 **물리 계층(Physical Layer)**, **데이터 링크 계층(Data Link Layer)**, **네트워크 계층(Network Layer),** **전송 계층(Transport Layer)**, **세션 계층(Session Layer)**, **표현 계층(Presentation Layer)**, **응용 계층(Application Layer)** 이렇게 7계층으로 나뉩니다. 
 각 계층에 대한 간략한 설명은 아래 표와 같습니다.
+
+|계층(Layer)|계층 이름|프로토콜(Protocol)|역할 설명|
+|:---|:---|:---|:---|
+|L7|응용 계층(Application Layer)|HTTP, SMTP, FTP, Telnet, DNS|네트워크 활동의 기반이 되는 인터페이스를 제공하는 역할 사용자가 직접 볼 수 있음|
+|L6|표현 계층(Presentation Layer)|ASCII, MPEG, JPEG, MIDI, EBCDIC|데이터가 사용 가능한 형식인지 확인하고, 암호화가 발생한 위치를 확인하는 역할|
+|L5|세션 계층(Session Layer)|NetBIOS, SAP, SDP, PIPO, SSH, TLS|연결을 유지하고 포트 및 세션을 제어하는 역할|
+|L4|전송 계층(Transport Layer)|TCP, UDP, SPX, SCTP|전송 프로토콜을 사용하여 데이터를 전송하는 역할|
+|L3|네트워크 계층(Network Layer)|IP, IPX, IPsec, ICMP, ARP|데이터가 취할 물리적 경로를 결정하는 역할|
+|L2|데이터 링크 계층(Data Link Layer)|Ethernet, PPP, ATM, MAC|하드웨어와 소프트웨어 연결고리, 연결된 네트워크 장치 간 데이터를 전송하는 역할|
+|L1|물리 계층(Physical Layer)|10BASE-T, 100BASE-TX, ISDN, wired, wireless|물리적 매체를 통해 bit 스트림을 전송하는 역할|
+<br/><br/>
+
+### TCP/IP Model
+OSI 모델은 국제 표준을 계층으로 정리한 것이라면, 산업에서 **범용적으로 사용하는 네트워크 표준 모델은 TCP/IP 모델입니다.** 
+OSI 모델이 발표되기 이전에 TCP/IP는 이미 사용 중이었고, 현재까지 네트워크 형식의 대부분은 TCP/IP를 표준으로 사용하고 있기 때문입니다. 
+TCP/IP 모델은 보통 4계층 혹은 5계층으로 설명합니다. 
+4계층과 5계층의 차이는 4계층 그림에서 보이는 최하단 Network Interface Layer를 Physical, Data Link Layer로 나누어 다룬 점, 2번째 계층 Internet Layer의 명칭을 Network Layer로 다룬 차이가 있습니다. 
+4계층 모델은 예전 TCP/IP 프로토콜을 정의할 때 표현한 방식이기 때문에 비교적 최근에 정의한 5계층을 기준으로 정리하겠습니다. 
+TCP/IP 5계층 모델에 대한 간략한 설명은 아래 표와 같습니다.
+
+|계층(Layer)|계층 이름|프로토콜(Protocol)|역할 설명|
+|:---|:---|:---|:---|
+|L5|응용 계층(Application Layer)|HTTP, SMTP, FTP, Telnet, DNS|OSI 모델의 L5, L6, L7의 역할|
+|L4|전송 계층(Transport Layer)|TCP, UDP, SPX, SCTP|전송 프로토콜을 사용하여 데이터를 전송하는 역할|
+|L3|네트워크 계층(Network Layer)|IP, IPX, IPsec, ICMP, ARP|데이터가 취할 물리적 경로를 결정하는 역할|
+|L2|데이터 링크 계층(Data Link Layer)|Ethernet, PPP, ATM, MAC|하드웨어와 소프트웨어 연결고리, 연결된 네트워크 장치 간 데이터를 전송하는 역할|
+|L1|물리 계층(Physical Layer)|10BASE-T, 100BASE-TX, ISDN, wired, wireless|물리적 매체를 통해 bit 스트림을 전송하는 역할|
+<br/><br/>
+
+## 추가 용어 정리
+### 3-way Handshake
+
+**3-way Handshake**는 연결 확인 방식으로, 3단계 ****과정으로 장치 간 연결을 확인하며 서로 연결되어 있다는 것을 보장합니다. 
+**3-way Handshake** 절차를 살펴보면 아래와 같습니다.
+
+<img src = "/post_images/2023-02-07-network-what-is-tcp-ip/3-way-handshake.png" width=auto height=auto border="1">
+
+**3-way Handshake 절차**
+
+1. SYN
+2. SYN-ACK
+3. ACK
+
+먼저 플래그부터 살펴보면 **SYN**은 Synchronize의 줄임말로 연결 시작을 의미합니다. 
+**ACK**는 Acknowledgement의 줄임말로 응답을 의미합니다. 단계를 설명하면, 먼저 클라이언트는 서버에 연결이 가능한지 요청(SYN)을 보냅니다. 
+그다음 서버는 연결이 가능하다는 응답(ACK)을 클라이어트 측에 보내면서 연결 요청(SYN)을 같이 보냅니다. 
+이에 클라이언트는 연결 가능하다는 응답(ACK)을 서버 측에 보내줌으로서 두 장치 간의 연결이 보장됩니다.
+<br/><br/>
+
+### 프로토콜
+프로토콜은 규약을 의미하며, 장치 간 통신에 있어서 주고받는 양식 체계를 의미합니다. 프로토콜은 **구문(syntax), 의미(semantic), 타이밍(timing)** 세 가지 구성요소로 이뤄져 있습니다.
+
+- 구문(syntax)
+    - 데이터를 어떻게 구성할지에 대한 형식, 프로그래밍 방식, 신호 레벨 등에 대한 형식을 규정 ****
+- 의미(semantic)
+    - 데이터를 어떻게 처리할 것인지에 대한 방법, 에러가 발생할 경우에 대한 정보 등 ****
+- 타이밍(timing)
+    - 데이터를 송/수신을 효율적으로 관리하기 위한 체계, 주고받을 때 속도 관리 및 처리 순서 등
+
+또한 계층적 역할의 관점에서 보았을 때, 물리적 측면과 논리적 측면 두 가지로 구분할 수 있습니다.
+
+- 물리적 측면
+    - 자료 전송에 쓰이는 전송 매체, 접속용 단자 및 전송 신호, 회선 규격 등
+- 논리적 측면
+    - 프레임(Frame, 자료의 표현 형식 단위) 구성, 프레임 안에 있는 각 항목의 뜻과 기능, 자료 전송의 절차 등
+<br/><br/>
+      
+### 패킷
+패킷은 **화물(Package) + 덩어리(Bucket) 의 합성어**로 ****네트워크가 전달하는 데이터의 형식화된 블록을 의미합니다. 
+상세하게 설명하면, 네트워크를 통해 전달되는 데이터를 여러 개로 나눈 형식화된 조각을 뜻합니다. 
+패킷을 사용하는 이유는 전송하는 데이터의 사이즈가 큰 경우 패킷으로 나누어 송/수신하지 않는다면, 두 장치의 데이터 전송이 끝날 때까지 해당 케이블을 사용할 수 없는 문제가 있기 때문입니다.
+또한 전송 중에 연결이 끊겼을 때 데이터 유실이 발생하게 됩니다.
+
+## 마무리하며
+개념을 정리하다 보니 다시 공부하면서 되게 좋았지만, 나무줄기처럼 계속 파생되는 개념들이 쏟아져서 어디서부터 어디까지 정리해야 할지 감을 잡기 어려웠습니다😂. 
+계속해서 글을 쓰는 버릇을 들이다 보면, 정리하는 방법도 점차 늘어 양질의 글을 쓸 수 있을 것 같습니다🥸.
