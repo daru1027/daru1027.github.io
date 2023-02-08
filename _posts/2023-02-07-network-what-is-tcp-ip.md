@@ -147,6 +147,6 @@ TCP/IP 5계층 모델에 대한 간략한 설명은 아래 표와 같습니다.
 
 ## 참고자료
 > 1. Data Communications and Networking - Behrouz A. Forouzan
-> 2. https://velog.io/@haero_kim/물-흐르듯-읽어보는-TCPIP
-> 3. https://velog.io/@jwkim/cs-nw-osi-tcp-ip
-> 4. https://velog.io/@osk3856/TCP-Updated-Model
+> 2. [https://velog.io/@haero_kim/물-흐르듯-읽어보는-TCPIP](https://velog.io/@haero_kim/물-흐르듯-읽어보는-TCPIP)
+> 3. [https://velog.io/@jwkim/cs-nw-osi-tcp-ip](https://velog.io/@jwkim/cs-nw-osi-tcp-ip)
+> 4. [https://velog.io/@osk3856/TCP-Updated-Model](https://velog.io/@osk3856/TCP-Updated-Model)
